@@ -1,27 +1,37 @@
+-- Online SQL Editor to Run SQL Online.
+-- Use the editor to create new tables, insert data and all other SQL operations.
+  
 CREATE TABLE Mineurs
 (
-    colonne1 type_donnees,
-    colonne2 type_donnees,
-    colonne3 type_donnees,
-    colonne4 type_donnees
+    code int,
+    nom char,
+    age int,
+    anciennete int
 )
 CREATE TABLE Mines
 (
-    colonne1 type_donnees,
-    colonne2 type_donnees,
-    colonne3 type_donnees,
-    colonne4 type_donnees
+    nom char,
+    lieu char
 )
 CREATE TABLE Minerais
 (
-    colonne1 type_donnees,
-    colonne2 type_donnees,
-    colonne3 type_donnees,
-    colonne4 type_donnees
+    nom char,
+    prix int
 )
 
-INSERT INTO Mineurs (column1, column2, column3, ...)
-VALUES (value1, value2, value3, ...);
+
+INSERT INTO Mineurs (code, prenom, nom, age, anciennete)
+VALUES ('001', Jean, Neymar, '45', '29');
+('001', Jean, Neymar, '45', '29');
+('001', Jean, Neymar, '45', '29');
+('001', Jean, Neymar, '45', '29');
+('001', Jean, Neymar, '45', '29');
+('001', Jean, Neymar, '45', '29');
+('001', Jean, Neymar, '45', '29');
+('001', Jean, Neymar, '45', '29');
+
+
+
 
 
 INSERT INTO Minerais (column1, column2, column3, ...)
@@ -30,3 +40,8 @@ VALUES (value1, value2, value3, ...);
 
 INSERT INTO Mines (column1, column2, column3, ...)
 VALUES (value1, value2, value3, ...);
+
+
+
+
+SELECT noms FROM Mineurs;
