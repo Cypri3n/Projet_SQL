@@ -4,48 +4,58 @@ CREATE TABLE Mineurs
     nom CHAR,
   	prenom CHAR,
     age INT,
-    anciennete INT
+    anciennete INT,
+  	id_mine INT
 );
 CREATE TABLE Mines
 (
     nom CHAR,
-    lieu CHAR
+    lieu CHAR,
+  	age INT,
+  	id INT
 );
 CREATE TABLE Minerais
 (
     nom CHAR,
-    prix INT
+    prix INT,
+  	id_mine INT
 );
 
 
+
 INSERT INTO Mineurs (code, prenom, nom, age, anciennete, id_mine)
-VALUES ('001', Jean, Neymar, '45', '29', '1');
-('002', Octave, Anfat, '24', '7', '2');
-('003', Paul, Lueur, '17', '1', '2');
-('004', Ghislain, Becile, '59', '39', '2');
-('005', Beatrice, Denisse, '35', '3', '3');
-('006', Pierre, Quiroulenamassepasmousse, '39', '20', '1');
-('007', Bernard, De Laguerre, '36', '20', '2');
-('008', Ibrahim, Ediatemann, '27', '10', '2');
-('009', Sylvain, Rouge, '34', '14', '1');
-('010', Sylvain, Blanc, '19', '2', '3');
-('011', Sylvie, Detapauch, '62', '40', '3');
-('012', Catherine, Allation, '52', '38', '1');
-('013', Merlin, Dulac, '58', '40', '1');
-('014', Lancelot, Leanchentheurre, '23', '5', '3');
-('015', Martha, Ginne, '32', '10', '3');
+VALUES (001, 'Jean', 'Neymar', 45, 29, 1);
+(002, 'Octave', 'Ansole', 24, 7, 2);
+(003, 'Paul', 'Lueur', 17, 1, 2);
+(004, 'Ghislain', 'Becile', 59, 39, 2);
+(005, 'Beatrice', 'Denisse', 35, 3, 3);
+(006, 'Pierre', 'kiroulnamaspamouce', 39, 20, 1);
+(007, 'Bernard', 'De Laguerre', 36, 20, 2);
+(008, 'Salomée', 'Diteranee', 27, 10, 2);
+(009, 'Sylvain', 'Rouge', 34, 14, 1);
+(010, 'Sylvain', 'Blanc', 19, 2, 3);
+(011, 'Sylvie', 'Detapauch', 62, 40, 3);
+(012, 'Catherine', 'Allation', 52, 38, 1);
+(013, 'Merlin', 'Dulac', 58, 40, 1);
+(014, 'Lancelot', 'Leanchentheurre', 23, 5, 3);
+(015, 'Martha', 'Ginne', 32, 10, 3);
 
 
 
+INSERT INTO Minerais (nom, prix, id_mine)
+VALUES ('charbon', 5, 1);
+('fer', 25, 1)
+('mithril', 450, 2)
+('or', 90, 3)
+('argent', 45, 2)
+('cuivre', 15, 1)
 
 
-INSERT INTO Minerais (column1, column2, column3, ...)
-VALUES (value1, value2, value3, ...);
 
-
-INSERT INTO Mines (column1, column2, column3, ...)
-VALUES (value1, value2, value3, ...);
-
+INSERT INTO Mines (nom, lieu, age, id)
+VALUES ('Oignon', 'Roscoff', 830, 1);
+('Moria', 'khazad dum', 1300, 2);
+('Kampf', 'Auschwitz', 85, 3);
 
 
 
