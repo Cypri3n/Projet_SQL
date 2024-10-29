@@ -19,3 +19,14 @@ CREATE TABLE Minerais
     colonne3 type_donnees,
     colonne4 type_donnees
 )
+
+INSERT INTO Mineurs (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+
+INSERT INTO Minerais (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+
+INSERT INTO Mines (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
