@@ -33,7 +33,7 @@ VALUES (001, 'Jean', 'Neymar', 45, 29, 1);
 (007, 'Bernard', 'De Laguerre', 36, 20, 2);
 (008, 'Salomée', 'Diteranee', 27, 10, 2);
 (009, 'Sylvain', 'Rouge', 34, 14, 1);
-(010, 'Sylvain', 'Blanc', 19, 2, 3);
+(010, 'Sylvain', 'Blanc', 29, 12, 3);
 (011, 'Sylvie', 'Detapauch', 62, 40, 3);
 (012, 'Catherine', 'Allation', 52, 38, 1);
 (013, 'Merlin', 'Dulac', 58, 40, 1);
@@ -54,9 +54,13 @@ VALUES ('charbon', 5, 1);
 
 INSERT INTO Mines (nom, lieu, age, id)
 VALUES ('Oignon', 'Roscoff', 830, 1);
-('Moria', 'khazad dum', 1300, 2);
-('Kampf', 'Auschwitz', 85, 3);
+('Moria', 'Terre du milieu', 1300, 2);
+('Auschwitz', 'Allemagne', 85, 3);
 
 
 
-SELECT noms FROM Mineurs;
+SELECT prenom,nom FROM Mineurs;
+SELECT nom,lieu FROM Mines;
+SELECT * FROM Mineurs WHERE prenom LIKE 'Sylv%'
+SELECT nom FROM Minerais WHERE prix>30
+SELECT prenom,nom,age FROM Mineurs WHERE anciennete>15
