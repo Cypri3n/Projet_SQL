@@ -249,17 +249,17 @@ VALUES (001, 'Jean', 'Neymar', 45, 29, 1),
 
 
     --Requetes en SQL--
-SELECT prenom,nom FROM Mineurs;
-SELECT nom,lieu FROM Mines;
-SELECT * FROM Mineurs WHERE prenom LIKE 'Sylv%';
-SELECT nom FROM Minerais WHERE prix>30;
-SELECT prenom,nom,age FROM Mineurs WHERE anciennete>15;
+SELECT prenom,nom FROM Mineur;
+SELECT nom,lieu FROM Mine;
+SELECT * FROM Mineur WHERE prenom LIKE 'Sylv%';
+SELECT nom_minerai FROM Minerai WHERE prix_kilo >30;
+SELECT prenom,nom,age FROM Mineur WHERE ann_exp >15;
 SELECT mine.Nom FROM mine WHERE Département = 'Puy-de-Dôme';
-SELECT Nom_minerai FROM minerai;
-SELECT Nom_minerai FROM minerai WHERE prix_Kilo > 100;
+SELECT nom_minerai FROM Minerai;
+SELECT nom_minerai FROM Minerai WHERE prix_Kilo > 100;
 SELECT * FROM mineur WHERE age < 25 and ann_exp < 8;
-SELECT mine.Nom FROM mine JOIN minerai ON minerai.Nom_minerai = mine.Id_mine WHERE nom_minerai ='Or';
-SELECT mine.Nom FROM mine JOIN minerai ON minerai.nom_minerai = mine.Id_mine WHERE rareter  ='rare';
-COUNT (*) FROM Mineurs JOIN mine ON Mineurs.Id_mine = mine.Id_mine WHERE Nom = 'mine de Bentaillou';
-SELECT AVG(age) FROM Mineurs JOIN mine ON Mineurs.Id_mine = mine.Id_mine WHERE Nom = 'mine de la Brède';
+SELECT mine.nom  FROM mine JOIN mine_minerai ON mine.id_mine = mine_minerai.id_mine JOIN minerai ON mine_minerai.nom_minerai = minerai.nom_minerai WHERE minerai.nom_minerai = 'Or';
+SELECT mine.nom FROM mine JOIN mine_minerai ON mine.id_mine = mine_minerai.id_mine  JOIN minerai ON mine_minerai.nom_minerai = minerai.nom_minerai  WHERE minerai.rareter = 'rare';
+SELECT COUNT (*) FROM Mineur JOIN Mine ON Mineur.Id_mine = Mine.Id_mine WHERE Mine.nom = 'mine de Bentaillou';
+SELECT AVG(age) FROM Mineur JOIN Mine ON Mineur.id_mine = Mine.id_mine WHERE Mine.nom = 'mine de La Brède';
 
