@@ -133,3 +133,8 @@ SELECT mine.nom FROM mine JOIN mine_minerai ON mine.id_mine = mine_minerai.id_mi
 SELECT COUNT (*) FROM Mineur JOIN Mine ON Mineur.Id_mine = Mine.Id_mine WHERE Mine.nom = 'mine de Bentaillou';
 SELECT AVG(age) FROM Mineur JOIN Mine ON Mineur.id_mine = Mine.id_mine WHERE Mine.nom = 'mine de La Brède';
 
+Mine(id_mine,nom,lieu,département,fermeture)
+Mineur(code,prenom,nom,age,ann_exp,#id_mine)
+Minerai(nom_minerai,rareter,prix_kilo)
+Mine_minerai(#id_mine,#nom_minerai)
+
