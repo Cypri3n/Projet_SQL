@@ -128,21 +128,22 @@ SELECT Nom_minerai FROM minerai;
 SELECT Nom_minerai FROM minerai WHERE prix_Kilo > 100;
 SELECT * FROM mineur WHERE age => 50 and ann_exp < 8;
 -----------------------------------------------------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS mine_minerai;
-DROP TABLE IF EXISTS mineur;
-DROP TABLE IF EXISTS mine;
-DROP TABLE IF EXISTS minerai;
+DROP TABLE IF EXISTS Mine_minerai;
+DROP TABLE IF EXISTS Mineur;
+DROP TABLE IF EXISTS Mine;
+DROP TABLE IF EXISTS Minerai;
 
-CREATE TABLE mine (
+CREATE TABLE Mine (
     Id_mine INT NOT NULL,
     Nom VARCHAR(60) NOT NULL,
     Lieu VARCHAR(60),
     Département VARCHAR(60),
     Fermeture INT,
-    PRIMARY KEY (Id_mine),
+    PRIMARY KEY (Id_mine)
 );
 
-CREATE TABLE mineur (
+
+CREATE TABLE Mineur (
     Id_mineur INT NOT NULL,
     Nom VARCHAR(40),
     Prenom VARCHAR(40),
@@ -150,27 +151,26 @@ CREATE TABLE mineur (
     ann_exp INT,
     Id_mine INT,
     PRIMARY KEY (Id_mineur),
-    FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine) ON DELETE RESTRICT ON UPDATE CASCADE,
+    FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
-CREATE TABLE minerai (
+CREATE TABLE Minerai (
     Nom_minerai VARCHAR(40) NOT NULL,
     rareter VARCHAR(40),
     prix_Kilo INT,
-    PRIMARY KEY (Nom_minerai),
+    PRIMARY KEY (Nom_minerai)
 );
 
-CREATE TABLE mine_minerai (
+CREATE TABLE Mine_minerai (
     Id_mine INT NOT NULL,
     Nom_minerai VARCHAR(40) NOT NULL,
     PRIMARY KEY (Id_mine, Nom_minerai),
     FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine),
-    FOREIGN KEY (Nom_minerai) REFERENCES minerai(Nom_minerai),
+    FOREIGN KEY (Nom_minerai) REFERENCES minerai(Nom_minerai)
 );
 
 
-
-INSERT INTO mine (Id_mine, Nom, Lieu, Département, Fermeture) VALUES 
+INSERT INTO Mine (Id_mine, Nom, Lieu, Département, Fermeture) VALUES 
 (1, 'mine de Bentaillou', 'Pyrénée', 'Ariège', 1954),
 (2, 'mine de Salsigne', 'Carcassonne', 'Aude', 2004),
 (3, 'mine de La Brède', 'Auvergne-Rhône-Alpes', 'Puy-de-Dôme', 1981),
@@ -187,7 +187,7 @@ INSERT INTO mine (Id_mine, Nom, Lieu, Département, Fermeture) VALUES
 
 
 
-INSERT INTO minerai (Nom_minerai, rareter, prix_Kilo) VALUES 
+INSERT INTO Minerai (Nom_minerai, rareter, prix_Kilo) VALUES 
 ('Or', 'commun', 80570),
 ('Helium', 'rare', 17),
 ('Plomb', 'commun', 2.24),
@@ -201,7 +201,7 @@ INSERT INTO minerai (Nom_minerai, rareter, prix_Kilo) VALUES
 ;
 
 
-INSERT INTO mine_minerai (Id_mine, Nom_minerai) VALUES 
+INSERT INTO Mine_minerai (Id_mine, Nom_minerai) VALUES 
 (1, 'Cuivre'),
 (2, 'Zinc'),
 (4, 'Or'),
@@ -213,7 +213,7 @@ INSERT INTO mine_minerai (Id_mine, Nom_minerai) VALUES
 (7, 'Etain')
 ;
 
-INSERT INTO Mineurs (code, prenom, nom, age, anciennete, id_mine)
+INSERT INTO Mineur (code, prenom, nom, age, anciennete, id_mine)
 VALUES (001, 'Jean', 'Neymar', 45, 29, 1),
 (002, 'Octave', 'Ansole', 24, 7, 2),
 (003, 'Paul', 'Lueur', 17, 1, 2),
