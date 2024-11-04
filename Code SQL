@@ -127,5 +127,6 @@ SELECT prenom,nom,age FROM Mineurs WHERE anciennete>15;
 SELECT mine.Nom FROM mine WHERE Département = 'Puy-de-Dôme';
 SELECT Nom_minerai FROM minerai;
 SELECT Nom_minerai FROM minerai WHERE prix_Kilo > 100;
-SELECT * FROM mineur WHERE age => 50 and ann_exp < 8
-SELECT mine.Nom FROM mine JOIN minerai ON minerai.Nom_minerai = mine.Id_mine WHERE nom_minerai ='Or'
+SELECT * FROM mineur WHERE age => 50 and ann_exp < 8;
+SELECT mine.Nom FROM mine JOIN minerai ON minerai.Nom_minerai = mine.Id_mine WHERE nom_minerai ='Or';
+SELECT mine.Nom FROM mine JOIN minerai ON minerai.nom_minerai = mine.Id_mine WHERE rareter  ='rare';
