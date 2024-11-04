@@ -1,68 +1,3 @@
-CREATE TABLE Mineurs
-(
-    code INT,
-    nom CHAR,
-  	prenom CHAR,
-    age INT,
-    anciennete INT,
-  	id_mine INT
-);
-CREATE TABLE Mines
-(
-    nom CHAR,
-    lieu CHAR,
-  	age INT,
-  	id INT
-);
-CREATE TABLE Minerais
-(
-    nom CHAR,
-    prix INT,
-  	id_mine INT
-);
-
-
-
-INSERT INTO Mineurs (code, prenom, nom, age, anciennete, id_mine)
-VALUES (001, 'Jean', 'Neymar', 45, 29, 1);
-(002, 'Octave', 'Ansole', 24, 7, 2);
-(003, 'Paul', 'Lueur', 17, 1, 2);
-(004, 'Ghislain', 'Becile', 59, 39, 2);
-(005, 'Beatrice', 'Denisse', 35, 3, 3);
-(006, 'Pierre', 'kiroulnamaspamouce', 39, 20, 1);
-(007, 'Bernard', 'De Laguerre', 36, 20, 2);
-(008, 'Salomée', 'Diteranee', 27, 10, 2);
-(009, 'Sylvain', 'Rouge', 34, 14, 1);
-(010, 'Sylvain', 'Blanc', 29, 12, 3);
-(011, 'Sylvie', 'Detapauch', 62, 40, 3);
-(012, 'Catherine', 'Allation', 52, 38, 1);
-(013, 'Merlin', 'Dulac', 58, 40, 1);
-(014, 'Lancelot', 'Leanchentheurre', 23, 5, 3);
-(015, 'Martha', 'Ginne', 32, 10, 3);
-
-
-
-INSERT INTO Minerais (nom, prix, id_mine)
-VALUES ('charbon', 5, 1);
-('fer', 25, 1)
-('mithril', 450, 2)
-('or', 90, 3)
-('argent', 45, 2)
-('cuivre', 15, 1)
-
-
-
-INSERT INTO Mines (nom, lieu, age, id)
-VALUES ('Oignon', 'Roscoff', 830, 1);
-('Moria', 'Terre du milieu', 1300, 2);
-('Auschwitz', 'Allemagne', 85, 3);
-
-
-SELECT prenom,nom FROM Mineurs;
-SELECT nom,lieu FROM Mines;
-SELECT * FROM Mineurs WHERE prenom LIKE 'Sylv%'
-SELECT nom FROM Minerais WHERE prix>30
-SELECT prenom,nom,age FROM Mineurs WHERE anciennete>15
 -----------------------------------------------------------------------------------------------------------------------------------------
 DROP TABLE IF EXISTS mine_minerai;
 DROP TABLE IF EXISTS mineur;
@@ -75,7 +10,7 @@ CREATE TABLE mine (
     Lieu VARCHAR(60),
     Département VARCHAR(60),
     Fermeture INT,
-    PRIMARY KEY (Id_mine)
+    PRIMARY KEY (Id_mine);
 );
 
 CREATE TABLE mineur (
@@ -86,14 +21,14 @@ CREATE TABLE mineur (
     ann_exp INT,
     Id_mine INT,
     PRIMARY KEY (Id_mineur),
-    FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine) ON DELETE RESTRICT ON UPDATE CASCADE
+    FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine) ON DELETE RESTRICT ON UPDATE CASCADE;
 );
 
 CREATE TABLE minerai (
     Nom_minerai VARCHAR(40) NOT NULL,
     rareter VARCHAR(40),
     prix_Kilo INT,
-    PRIMARY KEY (Nom_minerai)
+    PRIMARY KEY (Nom_minerai);
 );
 
 CREATE TABLE mine_minerai (
@@ -101,7 +36,7 @@ CREATE TABLE mine_minerai (
     Nom_minerai VARCHAR(40) NOT NULL,
     PRIMARY KEY (Id_mine, Nom_minerai),
     FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine),
-    FOREIGN KEY (Nom_minerai) REFERENCES minerai(Nom_minerai)
+    FOREIGN KEY (Nom_minerai) REFERENCES minerai(Nom_minerai);
 );
 
 
@@ -134,6 +69,7 @@ INSERT INTO minerai (Nom_minerai, rareter, prix_Kilo) VALUES
 ('Fluorine', 'très rare', 1900),
 ('Etain', 'très rare', 17),
 ('Molybdene', 'très rare', 110);
+
 INSERT INTO mine_minerai (Id_mine, Nom_minerai) VALUES 
 (1, 'Cuivre'),
 (2, 'Zinc'),
@@ -162,21 +98,27 @@ VALUES (001, 'Jean', 'Neymar', 45, 29, 1);
 (013, 'Merlin', 'Dulac', 58, 40, 1);
 (014, 'Lancelot', 'Leanchentheurre', 23, 5, 3);
 (015, 'Martha', 'Ginne', 32, 10, 3);
-(016, 'Jacque', 'Leroy', 80, 45, 1),
-(017, 'Mellissa', 'Charpentier', 50, 32, 2),
-(018, 'Paul', 'Leroy', 20, 1, 3),
-(019, 'Samuel', 'Brun', 23, 10, 4),
-(020, 'Sarah', 'Leblanc', 31, 5, 5),
-(021, 'Fidelia', 'Brun', 42, 20, 6),
-(022, 'John', 'Lefaure', 63, 22, 6),
-(023, 'Brandon', 'Bonnet', 27, 6, 8),
-(024, 'Jason', 'Bonnet', 36, 12, 9),
-(025, 'Mike', 'Dupond', 32, 12, 10),
-(026, 'Lola', 'Dupont', 24, 1, 11),
-(027, 'Louna', 'Dupont', 25, 2, 12),
-(028, 'Nael', 'Perrot', 67, 15, 6),
-(029, 'Arthur', 'Famont', 77, 30, 7),
-(030, 'Rebecca', 'Charron', 22, 1, 8),
+(016, 'Jacque', 'Leroy', 80, 45, 1);
+(017, 'Mellissa', 'Charpentier', 50, 32, 2);
+(018, 'Paul', 'Leroy', 20, 1, 3);
+(019, 'Samuel', 'Brun', 23, 10, 4);
+(020, 'Sarah', 'Leblanc', 31, 5, 5);
+(021, 'Fidelia', 'Brun', 42, 20, 6);
+(022, 'John', 'Lefaure', 63, 22, 6);
+(023, 'Brandon', 'Bonnet', 27, 6, 8);
+(024, 'Jason', 'Bonnet', 36, 12, 9);
+(025, 'Mike', 'Dupond', 32, 12, 10);
+(026, 'Lola', 'Dupont', 24, 1, 11);
+(027, 'Louna', 'Dupont', 25, 2, 12);
+(028, 'Nael', 'Perrot', 67, 15, 6);
+(029, 'Arthur', 'Famont', 77, 30, 7);
+(030, 'Rebecca', 'Charron', 22, 1, 8);
 (031, 'Jeff', 'Granger', 33, 10, 3);
 
 
+
+SELECT prenom,nom FROM Mineurs;
+SELECT nom,lieu FROM Mines;
+SELECT * FROM Mineurs WHERE prenom LIKE 'Sylv%';
+SELECT nom FROM Minerais WHERE prix>30;
+SELECT prenom,nom,age FROM Mineurs WHERE anciennete>15;
