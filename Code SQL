@@ -12,7 +12,7 @@ CREATE TABLE mine (
     PRIMARY KEY (Id_mine),
 );
 
-CREATE TABLE mineur (
+CREATE TABLE Mineur (
     Id_mineur INT NOT NULL,
     Nom VARCHAR(40),
     Prenom VARCHAR(40),
@@ -23,14 +23,14 @@ CREATE TABLE mineur (
     FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine) ON DELETE RESTRICT ON UPDATE CASCADE,
 );
 
-CREATE TABLE minerai (
+CREATE TABLE Minerai (
     Nom_minerai VARCHAR(40) NOT NULL,
     rareter VARCHAR(40),
     prix_Kilo INT,
     PRIMARY KEY (Nom_minerai),
 );
 
-CREATE TABLE mine_minerai (
+CREATE TABLE Mine_minerai (
     Id_mine INT NOT NULL,
     Nom_minerai VARCHAR(40) NOT NULL,
     PRIMARY KEY (Id_mine, Nom_minerai),
@@ -213,7 +213,7 @@ INSERT INTO Mine_minerai (Id_mine, Nom_minerai) VALUES
 (7, 'Etain')
 ;
 
-INSERT INTO Mineur (code, prenom, nom, age, anciennete, id_mine)
+INSERT INTO Mineur (code, prenom, nom, age, ann_exp, id_mine)
 VALUES (001, 'Jean', 'Neymar', 45, 29, 1),
 (002, 'Octave', 'Ansole', 24, 7, 2),
 (003, 'Paul', 'Lueur', 17, 1, 2),
