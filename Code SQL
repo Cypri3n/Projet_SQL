@@ -5,80 +5,80 @@ DROP TABLE IF EXISTS mine;
 DROP TABLE IF EXISTS minerai;
 
 CREATE TABLE mine (
-    Id_mine INT NOT NULL,
-    Nom VARCHAR(60) NOT NULL,
-    Lieu VARCHAR(60),
-    Département VARCHAR(60),
-    Fermeture INT,
+    Id_mine INT NOT NULL;
+    Nom VARCHAR(60) NOT NULL;
+    Lieu VARCHAR(60);
+    Département VARCHAR(60);
+    Fermeture INT;
     PRIMARY KEY (Id_mine);
 );
 
 CREATE TABLE mineur (
-    Id_mineur INT NOT NULL,
-    Nom VARCHAR(40),
-    Prenom VARCHAR(40),
-    age INT,
-    ann_exp INT,
-    Id_mine INT,
-    PRIMARY KEY (Id_mineur),
+    Id_mineur INT NOT NULL;
+    Nom VARCHAR(40);
+    Prenom VARCHAR(40);
+    age INT;
+    ann_exp INT;
+    Id_mine INT;
+    PRIMARY KEY (Id_mineur);
     FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine) ON DELETE RESTRICT ON UPDATE CASCADE;
 );
 
 CREATE TABLE minerai (
-    Nom_minerai VARCHAR(40) NOT NULL,
-    rareter VARCHAR(40),
-    prix_Kilo INT,
+    Nom_minerai VARCHAR(40) NOT NULL;
+    rareter VARCHAR(40);
+    prix_Kilo INT;
     PRIMARY KEY (Nom_minerai);
 );
 
 CREATE TABLE mine_minerai (
-    Id_mine INT NOT NULL,
-    Nom_minerai VARCHAR(40) NOT NULL,
-    PRIMARY KEY (Id_mine, Nom_minerai),
-    FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine),
+    Id_mine INT NOT NULL;
+    Nom_minerai VARCHAR(40) NOT NULL;
+    PRIMARY KEY (Id_mine, Nom_minerai);
+    FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine);
     FOREIGN KEY (Nom_minerai) REFERENCES minerai(Nom_minerai);
 );
 
 
 
 INSERT INTO mine (Id_mine, Nom, Lieu, Département, Fermeture) VALUES 
-(1, 'mine de Bentaillou', 'Pyrénée', 'Ariège', 1954),
-(2, 'mine de Salsigne', 'Carcassonne', 'Aude', 2004),
-(3, 'mine de La Brède', 'Auvergne-Rhône-Alpes', 'Puy-de-Dôme', 1981),
-(4, 'mine de Pont-Péan', 'Pont-Péan', 'Ille-et-Vilaine', 1904),
-(5, 'mine de La Chapelle-en-Valgaudémar', 'Chapelle-en-Valgaudémar', 'Hautes-Alpes', 1901),
-(6, 'mine de La Barre', 'Barre', 'Puy-de-Dôme', 1966),
-(7, 'mine de Fonsante', 'Fonsante', 'Tarn', 1987),
-(8, 'mine de Voltenne', 'Voltenne', 'Saône-et-Loire', 1972),
-(9, 'mine de Château-Lambert', 'Château-Lambert', 'Haute-Saône', 1945),
-(10, 'mine Saint-Parize-le-Châtel', 'Saint-Parize-le-Châtel', 'Nièvre', NULL),
-(11, 'mine de La Villeder', 'Villeder', 'Morbihan', 1909),
+(1, 'mine de Bentaillou', 'Pyrénée', 'Ariège', 1954);
+(2, 'mine de Salsigne', 'Carcassonne', 'Aude', 2004);
+(3, 'mine de La Brède', 'Auvergne-Rhône-Alpes', 'Puy-de-Dôme', 1981);
+(4, 'mine de Pont-Péan', 'Pont-Péan', 'Ille-et-Vilaine', 1904);
+(5, 'mine de La Chapelle-en-Valgaudémar', 'Chapelle-en-Valgaudémar', 'Hautes-Alpes', 1901);
+(6, 'mine de La Barre', 'Barre', 'Puy-de-Dôme', 1966);
+(7, 'mine de Fonsante', 'Fonsante', 'Tarn', 1987);
+(8, 'mine de Voltenne', 'Voltenne', 'Saône-et-Loire', 1972);
+(9, 'mine de Château-Lambert', 'Château-Lambert', 'Haute-Saône', 1945);
+(10, 'mine Saint-Parize-le-Châtel', 'Saint-Parize-le-Châtel', 'Nièvre', NULL);
+(11, 'mine de La Villeder', 'Villeder', 'Morbihan', 1909);
 (12, 'mine de La Chapelle-en-Valgaudémar', 'Chapelle-en-Valgaudémar', 'Hautes-Alpes', 1900);
 
 
 
 
 INSERT INTO minerai (Nom_minerai, rareter, prix_Kilo) VALUES 
-('Or', 'commun', 80570),
-('Helium', 'rare', 17),
-('Plomb', 'commun', 2.24),
-('Zinc', 'commun', 2.37),
-('Antimoine', 'rare', 5.88),
-('Tungstene', 'rare', 0.33),
-('Cuivre', 'très rare', 9.98),
-('Fluorine', 'très rare', 1900),
-('Etain', 'très rare', 17),
+('Or', 'commun', 80570);
+('Helium', 'rare', 17);
+('Plomb', 'commun', 2.24);
+('Zinc', 'commun', 2.37);
+('Antimoine', 'rare', 5.88);
+('Tungstene', 'rare', 0.33);
+('Cuivre', 'très rare', 9.98);
+('Fluorine', 'très rare', 1900);
+('Etain', 'très rare', 17);
 ('Molybdene', 'très rare', 110);
 
 INSERT INTO mine_minerai (Id_mine, Nom_minerai) VALUES 
-(1, 'Cuivre'),
-(2, 'Zinc'),
-(4, 'Or'),
-(10, 'Antimoine'),
-(9, 'Plomb'),
-(8, 'Fluorine'),
-(3, 'Molybdene'),
-(6, 'Tungstene'),
+(1, 'Cuivre');
+(2, 'Zinc');
+(4, 'Or');
+(10, 'Antimoine');
+(9, 'Plomb');
+(8, 'Fluorine');
+(3, 'Molybdene');
+(6, 'Tungstene');
 (7, 'Etain');
 
 
