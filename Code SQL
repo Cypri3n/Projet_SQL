@@ -134,43 +134,43 @@ DROP TABLE IF EXISTS Mine;
 DROP TABLE IF EXISTS Minerai;
 
 CREATE TABLE Mine (
-    Id_mine INT NOT NULL,
-    Nom VARCHAR(60) NOT NULL,
-    Lieu VARCHAR(60),
-    Département VARCHAR(60),
-    Fermeture INT,
-    PRIMARY KEY (Id_mine)
+    id_mine INT NOT NULL,
+    nom VARCHAR(60) NOT NULL,
+    lieu VARCHAR(60),
+    département VARCHAR(60),
+    fermeture INT,
+    PRIMARY KEY (id_mine)
 );
 
 
 CREATE TABLE Mineur (
-    Id_mineur INT NOT NULL,
-    Nom VARCHAR(40),
-    Prenom VARCHAR(40),
+    code INT NOT NULL,
+    prenom VARCHAR(40),
+    nom VARCHAR(40),
     age INT,
     ann_exp INT,
-    Id_mine INT,
-    PRIMARY KEY (Id_mineur),
-    FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine) ON DELETE RESTRICT ON UPDATE CASCADE
+    id_mine INT,
+    PRIMARY KEY (code),
+    FOREIGN KEY (id_mine) REFERENCES Mine(id_mine) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE Minerai (
-    Nom_minerai VARCHAR(40) NOT NULL,
+    nom_minerai VARCHAR(40) NOT NULL,
     rareter VARCHAR(40),
     prix_Kilo INT,
-    PRIMARY KEY (Nom_minerai)
+    PRIMARY KEY (nom_minerai)
 );
 
 CREATE TABLE Mine_minerai (
-    Id_mine INT NOT NULL,
-    Nom_minerai VARCHAR(40) NOT NULL,
-    PRIMARY KEY (Id_mine, Nom_minerai),
-    FOREIGN KEY (Id_mine) REFERENCES mine(Id_mine),
-    FOREIGN KEY (Nom_minerai) REFERENCES minerai(Nom_minerai)
+    id_mine INT NOT NULL,
+    nom_minerai VARCHAR(40) NOT NULL,
+    PRIMARY KEY (id_mine, nom_minerai),
+    FOREIGN KEY (id_mine) REFERENCES Mine(id_mine),
+    FOREIGN KEY (nom_minerai) REFERENCES Minerai(nom_minerai)
 );
 
 
-INSERT INTO Mine (Id_mine, Nom, Lieu, Département, Fermeture) VALUES 
+INSERT INTO Mine (id_mine, nom, lieu, département, fermeture) VALUES 
 (1, 'mine de Bentaillou', 'Pyrénée', 'Ariège', 1954),
 (2, 'mine de Salsigne', 'Carcassonne', 'Aude', 2004),
 (3, 'mine de La Brède', 'Auvergne-Rhône-Alpes', 'Puy-de-Dôme', 1981),
@@ -187,7 +187,7 @@ INSERT INTO Mine (Id_mine, Nom, Lieu, Département, Fermeture) VALUES
 
 
 
-INSERT INTO Minerai (Nom_minerai, rareter, prix_Kilo) VALUES 
+INSERT INTO Minerai (nom_minerai, rareter, prix_Kilo) VALUES 
 ('Or', 'commun', 80570),
 ('Helium', 'rare', 17),
 ('Plomb', 'commun', 2.24),
@@ -201,7 +201,7 @@ INSERT INTO Minerai (Nom_minerai, rareter, prix_Kilo) VALUES
 ;
 
 
-INSERT INTO Mine_minerai (Id_mine, Nom_minerai) VALUES 
+INSERT INTO Mine_minerai (id_mine, nom_minerai) VALUES 
 (1, 'Cuivre'),
 (2, 'Zinc'),
 (4, 'Or'),
@@ -246,6 +246,7 @@ VALUES (001, 'Jean', 'Neymar', 45, 29, 1),
 (030, 'Rebecca', 'Charron', 22, 1, 8),
 (031, 'Jeff', 'Granger', 33, 10, 3)
 ;
+
 
     --Requetes en SQL--
 SELECT prenom,nom FROM Mineurs;
