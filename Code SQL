@@ -132,6 +132,10 @@ SELECT mine.nom  FROM mine JOIN mine_minerai ON mine.id_mine = mine_minerai.id_m
 SELECT mine.nom FROM mine JOIN mine_minerai ON mine.id_mine = mine_minerai.id_mine  JOIN minerai ON mine_minerai.nom_minerai = minerai.nom_minerai  WHERE minerai.rareter = 'rare';
 SELECT COUNT (*) FROM Mineur JOIN Mine ON Mineur.Id_mine = Mine.Id_mine WHERE Mine.nom = 'mine de Bentaillou';
 SELECT AVG(age) FROM Mineur JOIN Mine ON Mineur.id_mine = Mine.id_mine WHERE Mine.nom = 'mine de La Brède';
+SELECT * FROM Mine ORDER BY département ASC;
+SELECT * FROM Mineur JOIN Mine ON Mineur.id_mine = Mine.id_mine WHERE Mineur.prenom LIKE 'J%';
+SELECT Mineur.prenom, Mineur.nom, Mine.nom, Minerai.nom_minerai FROM Mineur JOIN Mine ON Mineur.id_mine = Mine.id_mine JOIN Mine_minerai ON Mine.id_mine = Mine_minerai.id_mine JOIN Minerai ON Mine_minerai.nom_minerai = Minerai.nom_minerai WHERE Mineur.age > 25;
+
 
 Mine(id_mine,nom,lieu,département,fermeture)
 Mineur(code,prenom,nom,age,ann_exp,#id_mine)
